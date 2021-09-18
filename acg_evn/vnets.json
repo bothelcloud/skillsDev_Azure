@@ -1,0 +1,73 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "0.0.0.0",
+    "parameters": {
+        "vnetName": {
+            "type": "string",
+            "defaultValue": "vnet0"
+        },
+        "vnetAddSpace": {
+            "type": "string",
+            "defaultValue": "10.0.0.0/16"
+        },
+        "vnetSubnet0Name":{
+            "type": "string",
+            "defaultValue": "subnet0"
+        },
+        "vnetSubnet0AddSpace": {
+            "type": "string",
+            "defaultValue": "10.0.0.0/24"
+        },
+        "vnetSubnet1Name":{
+            "type": "string",
+            "defaultValue": "subnet1"
+        },
+        "vnetSubnet1AddSpace": {
+            "type": "string",
+            "defaultValue": "10.0.1.0/24"
+        },
+        "vnetSubnet2Name":{
+            "type": "string",
+            "defaultValue": "subnet2"
+        },
+        "vnetSubnet2AddSpace": {
+            "type": "string",
+            "defaultValue": "10.0.2.0/24"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2020-11-01",
+            "name": "[parameters('vnetName')]",
+            "location": "West Central US",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('vnetAddSpace')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[parameters('vnetSubnet0Name')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('vnetSubnet0AddSpace')]"
+                        }
+                    },
+                    {
+                        "name": "[parameters('vnetSubnet1Name')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('vnetSubnet1AddSpace')]"
+                        }
+                    },
+                    {
+                        "name": "[parameters('vnetSubnet2Name')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('vnetSubnet2AddSpace')]"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

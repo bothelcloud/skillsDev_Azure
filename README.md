@@ -1,2 +1,2 @@
 # Skills Development - Microsoft Azure
-A skills development repo that allows for collaboration on and development of skills relating to the Microsoft Azure platform
+This repo is putting together work for different labs, templates, and learning projects that are based on Microsoft Azure cloud platform.
